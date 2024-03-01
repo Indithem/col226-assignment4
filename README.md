@@ -1,20 +1,24 @@
-# Surface Syntax
+# Lexing
+We want to identify the following as tokens:
+- *atoms* alphanumerics starting with lowercase letters
+- *variables* alphanumerics starting with uppercase letters
+- `:- , . !` for the syntax
+- `(` and `)` for grouping
+- `[]` for lists
+- `#` for comments
 
-<!-- We represent the program and the Goals seperately in two different files of formats .pl and .gl respectively. -->
+# Files
+## lexer.mll
+The lexer unit using ocamllex.
+## parser.mly
+The parser unit using ocamlyacc.
+## ast.ml
+Contains types for the abstract syntax tree.
+Also contains functions related to parsing/creating/printing ast's.
+## main.ml
+Combines all theses units.
+Our excecutable produced takes the source code from std in and prints out ast.
+## test.ml
+If possible, we will write tests for our parser and lexer here. 
 
-* *Fact* will be of form *head* followed by `.`.
-* *Rule* will be of form *head* followed by `:-` followed by *body* followed by `.`.
-* *body* will have *atomic formulae* each seperated by `,`.
-
-* A *Goal* starts up with a `?-` consisting of by *atomic formulae*  each seperated by `,` followed by `;`.
-
-
-* *Predicate Symbols* will start with lowercase or an `_` followed by alphanumerics or `_ '` .
-* *Variables* will start with uppercase followed by alphanumerics or `_ '`.
-* *Constants* will start with lowercase followed by alphanumerics.
-* `!`  is a 0ary atomic formula.
-
-# Lexicons
-We use `.,;?-_'!` in various situations presented above. *alphanumerics* are also used. 
-
-# Deviations from standard Prolog
+Structure inspired from [this](https://www.youtube.com/watch?v=yySh6WLCn7A&list=PLre5AT9JnKShBOPeuiD9b-I4XROIJhkIU&index=156) youtube playlist.
