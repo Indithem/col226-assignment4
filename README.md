@@ -29,4 +29,5 @@ Structure inspired from [this](https://www.youtube.com/watch?v=yySh6WLCn7A&list=
 # TODO
 - [] `%left` `%right` `%nonassoc` ? what are these?
 - [] `[]` for lists
-- [] use of `"` for atoms which have space seperation.
+- [x] use of `"` for atoms which have space seperation.
+- [] test `(body)` grammar working.

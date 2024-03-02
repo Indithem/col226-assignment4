@@ -6,7 +6,7 @@ type term =
   | Const_int of int
   | K'ary of {symbol: string; args: term list}
 
-type head_terms = 
+type head_term = 
   | Skip
   | Term of term
 
@@ -24,7 +24,7 @@ type goal_ast = (** for use in goals*)
 type clause_ast = (**for use in programs*)
 {
   head: string;
-  args: head_terms list;
+  args: head_term list;
   body: goal_ast option;
 }
 ;;
