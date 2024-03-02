@@ -29,6 +29,11 @@ type clause_ast = (**for use in programs*)
 }
 ;;
 
+type statement =
+  | ClauseStatement of clause_ast
+  | GoalStatement of goal_ast
+;;
+
 let print_gaps n =
   Printf.printf "\n";
   for i = 1 to n do
@@ -84,4 +89,11 @@ let rec print_clause_ast c =
       Printf.printf "\nBody: ";
       print_goal_ast (Option.get c.body) base
   ;
+;;
+
+let print_appropriately s =
+  Printf.printf "\n";
+  match s with
+  | ClauseStatement c -> print_clause_ast c
+  | GoalStatement g -> print_goal_ast g 0
 ;;

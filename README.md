@@ -4,7 +4,7 @@ We want to identify the following as tokens:
 - *variables* alphanumerics starting with uppercase letters
 - `:- .` for the syntax
 - `(` and `)` for grouping
-- `[]` for lists
+<!-- - `[]` for lists -->
 - `#` for comments
 - `; \+ ,` for atoms' logic
 - `!` for ofcourse
@@ -28,3 +28,5 @@ Structure inspired from [this](https://www.youtube.com/watch?v=yySh6WLCn7A&list=
 
 # TODO
 - [] `%left` `%right` `%nonassoc` ? what are these?
+- [] `[]` for lists
+- [] use of `"` for atoms which have space seperation.
