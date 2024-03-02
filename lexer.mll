@@ -17,7 +17,7 @@ rule logprog_parser = parse
     | ';' {OR_FORMULAE}
     | '_' {SKIP}
     | ':'whitespace*'-' {DEFINE}
-    | '-'whitespace*'?' {GOAL_INIT}
+    | '?'whitespace*'-' {GOAL_INIT}
     | '/'whitespace*'+' {NOT_FORMULAE}
     | ('+'|'-')?['0'-'9']+ as i {ATOM_INT(int_of_string i)}
     | ['A'-'Z']alphanumerics* as s {VARIABLE s}
@@ -26,4 +26,4 @@ rule logprog_parser = parse
     | '"' ([^'\n''"']+ as s) '"'   {ATOM s}
 
     | eof {EOF}
-    | _  {raise (Failure ("illegal character " ^ Lexing.lexeme lexbuf))}
+    | _  {raise (Failure ("illegal character '" ^ Lexing.lexeme lexbuf ^ "' while lexing"))}

@@ -92,8 +92,9 @@ let rec print_clause_ast c =
 ;;
 
 let print_appropriately s =
-  Printf.printf "\n";
   match s with
   | ClauseStatement c -> print_clause_ast c
-  | GoalStatement g -> print_goal_ast g 0
+  | GoalStatement g -> 
+    Printf.printf "\nGoal: ";
+    print_goal_ast g 0
 ;;

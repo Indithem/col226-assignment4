@@ -1,7 +1,19 @@
-cargs = -I build
+cargs = -I build -g
+files = build/parser.cmo build/lexer.cmo build/ast.cmo build/main.cmo
 
-build/LogProg: build/parser.cmo build/lexer.cmo build/ast.cmo build/main.cmo
-	ocamlc -o $@ $? $(cargs)
+build/LogProg: $(files)
+	ocamlc -o $@ $(files) $(cargs)
+
+.PHONY: tests
+tests: build/LogProg
+	@echo "Running tests"
+	./build/LogProg < tests/test1.lp
+	./build/LogProg < tests/test2.lp
+	./build/LogProg < tests/test3.lp
+	./build/LogProg < tests/test4.lp
+	./build/LogProg < tests/goals.lp
+	./build/LogProg < tests/goals1.lp
+	OCAMLRUNPARAM=b ./build/LogProg < tests/prec.lp
 
 build/parser.cmo: parser.mly build/ast.cmo
 	ocamlyacc parser.mly

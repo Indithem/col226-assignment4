@@ -4,7 +4,7 @@
 // %token COMMENT_HASH      --this will be ignored in the lexer
 %token DEFINE END COMMA OR_FORMULAE OFCOURSE SKIP NOT_FORMULAE
 %token EOF
-%left OR_FORMULAE           // could also be right, but it doesn't matter
+%left OR_FORMULAE           // could also be %right, but it doesn't matter
 %left COMMA
 %token <string> ATOM VARIABLE
 %token <int> ATOM_INT
