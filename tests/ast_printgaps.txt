@@ -1,0 +1,10 @@
+#use "ast.ml";;
+Printf.printf "Hello\n";
+
+print_gaps 1;
+print_gaps 2;
+print_gaps 3;
+print_gaps 0;
+print_gaps 1;
+
+Printf.printf "Hello\n";;

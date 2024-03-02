@@ -1,0 +1,35 @@
+#use "ast.ml";;
+
+let t1 = K'ary {
+    symbol= "root";
+    args= [
+        K'ary {
+            symbol= "child1";
+            args= [
+                Var "child1.1";
+                Const_int 1
+            ]
+        };
+        K'ary {
+            symbol= "child2";
+            args= [
+                Const_atom "child2.1";
+                K'ary {
+                    symbol= "child2.2";
+                    args= []
+                }
+            ]
+        }
+    ]
+} ;;
+
+let t2: term = Var "hello" ;;
+let t3: term = Const_int 1 ;;
+
+let g1 = Atomic t1 ;;
+let g2 = Not (Atomic t2) ;;
+let g3 = And (g1, Atomic t3) ;;
+
+print_goal_ast g1 0 ;
+print_goal_ast g2 0 ;
+print_goal_ast g3 0 ;;

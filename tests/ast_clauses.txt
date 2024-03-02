@@ -1,0 +1,27 @@
+#use "tests/ast-goals.txt";;
+
+let h = [
+    Skip;
+    Term (Var "x");
+    Term t3;
+    Skip;
+    Term t1;
+];;
+
+let clause1 = {
+    head = "clause1";
+    args = h;
+    body = None;
+};;
+
+
+let clause2 = {
+    head = "clause2";
+    args = h;
+    body = (Some g3);
+};;
+
+Printf.printf "\nPrinting clause ASTs\n\n\n";;
+
+print_clause_ast clause2;;
+print_clause_ast clause1;;

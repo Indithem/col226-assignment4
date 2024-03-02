@@ -2,10 +2,12 @@
 We want to identify the following as tokens:
 - *atoms* alphanumerics starting with lowercase letters
 - *variables* alphanumerics starting with uppercase letters
-- `:- , . !` for the syntax
+- `:- .` for the syntax
 - `(` and `)` for grouping
 - `[]` for lists
 - `#` for comments
+- `; \+ ,` for atoms' logic
+- `!` for ofcourse
 
 # Files
 ## lexer.mll
@@ -22,3 +24,7 @@ Our excecutable produced takes the source code from std in and prints out ast.
 If possible, we will write tests for our parser and lexer here. 
 
 Structure inspired from [this](https://www.youtube.com/watch?v=yySh6WLCn7A&list=PLre5AT9JnKShBOPeuiD9b-I4XROIJhkIU&index=156) youtube playlist.
+
+
+# TODO
+- [] `%left` `%right` `%nonassoc` ? what are these?

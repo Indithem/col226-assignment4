@@ -1,0 +1,27 @@
+#use "ast.ml";;
+
+let t = K'ary {
+    symbol= "root";
+    args= [
+        K'ary {
+            symbol= "child1";
+            args= [
+                Var "child1.1";
+                Const_int 1
+            ]
+        };
+        K'ary {
+            symbol= "child2";
+            args= [
+                Const_atom "child2.1";
+                K'ary {
+                    symbol= "child2.2";
+                    args= []
+                }
+            ]
+        }
+    ]
+};;
+
+Printf.printf "Hello\n";
+print_term t 0;;
